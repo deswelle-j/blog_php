@@ -24,10 +24,22 @@
         die('Erreur : ' .$e->getMessage());
     }
     //preparation d'une requette sql :
+    //selectionner le billet passer en $_POST
 
-    //selectionner le billet passer en $_POST et ses commentaires
 
-    //afficher le billet puis ses commentaires du plus recent au plus ancien
+    //execution de la requette avec le parametre $_GET['id']
+
+    //afficher le billet 
+    
+    
+    //femer le curseur de la base de donnée
+    $req->closeCursor();
+    
+    //Preparation d'une nouvelle requette sql:
+    //Selectionner les commentaires du billet
+    
+    
+    //afficher les commentaires du plus recent au plus ancien
 
     ?>
 

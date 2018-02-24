@@ -33,6 +33,7 @@
         echo '<p>' .$donnée['contenu'] . '</p>';
         echo '<a href=commentaires.php?id_billets=' .$donnée['id'] .'>Commentaires</a>';
     }
+    $req->closeCursor();
     ?>
 
     <!-- Optional JavaScript -->
