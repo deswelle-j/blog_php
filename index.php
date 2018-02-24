@@ -24,11 +24,15 @@
         die('Erreur : ' .$e->getMessage());
     }
     //preparation d'une requette sql :
-
     //selectionner les 5 derniers billets
+    $req = $db->query('SELECT * FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
 
     //afficher les billets, avec un lien vers les commentaires de ceux-ci, du plus recent au plus ancien
-
+    while ($donnée = $req->fetch()){
+        echo '<h2>' . $donnée['titre'] . '</h2>';
+        echo '<p>' .$donnée['contenu'] . '</p>';
+        echo '<a href=commentaires.php?id_billets=' .$donnée['id'] .'>Commentaires</a>';
+    }
     ?>
 
     <!-- Optional JavaScript -->
