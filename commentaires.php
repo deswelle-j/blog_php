@@ -25,16 +25,21 @@
     }
     //preparation d'une requette sql :
     //selectionner le billet passer en $_POST
-
-
+    $id= $_GET['id_billet'];
+    var_dump($id);
+    $req = $db->prepare('SELECT * FROM billets WHERE id= :id');
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
+    $req->execute();
+    $reponse=$req->fetchAll();
+    var_dump($reponse);
     //execution de la requette avec le parametre $_GET['id']
 
     //afficher le billet 
     
     
     //femer le curseur de la base de donnée
-    $req->closeCursor();
-    
+    // $req->closeCursor();
+
     //Preparation d'une nouvelle requette sql:
     //Selectionner les commentaires du billet
     

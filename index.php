@@ -31,7 +31,7 @@
     while ($donnée = $req->fetch()){
         echo '<h2>' . $donnée['titre'] . '</h2>';
         echo '<p>' .$donnée['contenu'] . '</p>';
-        echo '<a href=commentaires.php?id_billets=' .$donnée['id'] .'>Commentaires</a>';
+        echo '<a href=commentaires.php?id_billet=' .$donnée['id'] .'>Commentaires</a>';
     }
     $req->closeCursor();
     ?>
