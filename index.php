@@ -11,31 +11,34 @@
     <title>Blog php</title>
   </head>
   <body>
-    <h1>Ceci est un prototype simpliste de blog</h1>
+    <main class="container">
+      <h1>Ceci est un prototype simpliste de blog</h1>
 
-    <?php
-    //connexion à la base de donnée blog_php
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=blog_php;charset=utf8', 'root', '');
-    }
-    catch (Exception $e)
-    {
-        die('Erreur : ' .$e->getMessage());
-    }
-    //preparation d'une requette sql :
-    //selectionner les 5 derniers billets
-    $req = $db->query('SELECT * FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
+      <?php
+      //connexion à la base de donnée blog_php
+      try
+      {
+          $db = new PDO('mysql:host=localhost;dbname=blog_php;charset=utf8', 'root', '');
+      }
+      catch (Exception $e)
+      {
+          die('Erreur : ' .$e->getMessage());
+      }
 
-    //afficher les billets, avec un lien vers les commentaires de ceux-ci, du plus recent au plus ancien
-    while ($donnée = $req->fetch()){
-        echo '<h2>' . $donnée['titre'] . '</h2>';
-        echo '<p>' .$donnée['contenu'] . '</p>';
-        echo '<a href=commentaires.php?id_billet=' .$donnée['id'] .'>Commentaires</a>';
-    }
-    $req->closeCursor();
-    ?>
+      //preparation d'une requette sql :
+      //selectionner les 5 derniers billets
+      $req = $db->query('SELECT * FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
+      $reponse= $req->fetchAll();
+      //afficher les billets, avec un lien vers les commentaires de ceux-ci, du plus recent au plus ancien
+      foreach ($reponse as $donnée){
+          echo '<div class="post"><h2>' . $donnée['titre'] . '</h2><p>' .$donnée['contenu'] . '</p>';
+          echo '<a href=commentaires.php?id_billet=' .$donnée['id'] .'>Commentaires</a></div>';
+      }
 
+      //Fermeture du curseur
+      $req->closeCursor();
+      ?>
+    </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

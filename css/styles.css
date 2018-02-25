@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body{
+    font-family: "Open Sans";
+}
+.post{
+    border : 1px solid rgb(172, 167, 167);
+    background: rgb(153, 145, 145);
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+h2{
+    padding-left: 15px;
+    background: rgb(212, 207, 207);
+}
