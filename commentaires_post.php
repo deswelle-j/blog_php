@@ -1,11 +1,5 @@
 <?php
 
-// try{
-//     $db = new PDO('mysql:host=localhost;dbname=blog_php;charset=utf8', 'root', '');
-
-// }catch (Exception$e){
-//     die('Erreur :' .$e->getMessage());
-// }
 require('database.php');
 //connexion à la base de donnée blog_php
 $db = connexion();
