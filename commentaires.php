@@ -54,13 +54,20 @@
       }else{
         echo '<div><h4>Ce billet ne contient pas de commentaire pourquoi ne pas en mettre un ?</h4></div>';
       }
-
-      //Formulaire de saisie pour ajouter un commentaire en method post
-
-      //Redirection ver la page commentaires_post pour traitement de la requette d'insertion
-
-      // var_dump($rep);
+      $req->closeCursor();
       ?>
+      <!-- Formulaire de saisie pour ajouter un commentaire en method post
+      Redirection ver la page commentaires_post pour traitement de la requette d'insertion -->
+      <div>
+        <form action="commentaires_post.php" method="post">
+        <p>Ajoute un commentaire</p>
+        <label for="auteur">Pseudo</label>
+        <input id="auteur" name="auteur" type="text">
+        <label for="commentaire">Commentaire</label>
+        <input id="commentaire" name="commentaire" type="text">
+        <input type="submit" value="Envoyer">
+        </form>
+      </div>  
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
