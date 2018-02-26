@@ -54,6 +54,11 @@
       }else{
         echo '<div><h4>Ce billet ne contient pas de commentaire pourquoi ne pas en mettre un ?</h4></div>';
       }
+
+      //Formulaire de saisie pour ajouter un commentaire en method post
+
+      //Redirection ver la page commentaires_post pour traitement de la requette d'insertion
+
       // var_dump($rep);
       ?>
     </main>
