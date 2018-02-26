@@ -15,15 +15,10 @@
       <h1>Ceci est un prototype simpliste de blog</h1>
       <a href="index.php">Retour à la liste de billets</a>
       <?php
+    
+      require('database.php');
       //connexion à la base de donnée blog_php
-      try
-      {
-          $db = new PDO('mysql:host=localhost;dbname=blog_php;charset=utf8', 'root', '');
-      }
-      catch (Exception $e)
-      {
-          die('Erreur : ' .$e->getMessage());
-      }
+      $db = connexion();
       //preparation d'une requette sql : selectionner le billet passer en $_GET
       $id= $_GET['id_billet'];
       // var_dump($id);

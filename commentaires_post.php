@@ -1,11 +1,14 @@
 <?php
 
-try{
-    $db = new PDO('mysql:host=localhost;dbname=blog_php;charset=utf8', 'root', '');
+// try{
+//     $db = new PDO('mysql:host=localhost;dbname=blog_php;charset=utf8', 'root', '');
 
-}catch (Exception$e){
-    die('Erreur :' .$e->getMessage());
-}
+// }catch (Exception$e){
+//     die('Erreur :' .$e->getMessage());
+// }
+require('database.php');
+//connexion à la base de donnée blog_php
+$db = connexion();
 //Recuperation et verification des valeurs du formulaire
 var_dump($_POST);
 if(isset($_POST['auteur']) && isset($_POST['commentaire']) && isset($_POST['id_billet']) && ($_POST['auteur'] && $_POST['commentaire'] && $_POST['id_billet']) != '' ){

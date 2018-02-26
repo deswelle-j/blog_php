@@ -15,16 +15,9 @@
       <h1>Ceci est un prototype simpliste de blog</h1>
 
       <?php
+      require('database.php');
       //connexion à la base de donnée blog_php
-      try
-      {
-          $db = new PDO('mysql:host=localhost;dbname=blog_php;charset=utf8', 'root', '');
-      }
-      catch (Exception $e)
-      {
-          die('Erreur : ' .$e->getMessage());
-      }
-
+      $db = connexion();
       //preparation d'une requette sql :
       //selectionner les 5 derniers billets
       $req = $db->query('SELECT * FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
