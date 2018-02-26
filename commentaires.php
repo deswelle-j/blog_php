@@ -65,6 +65,7 @@
         <input id="auteur" name="auteur" type="text">
         <label for="commentaire">Commentaire</label>
         <input id="commentaire" name="commentaire" type="text">
+        <input type="text" name="id_billet" value="<?php echo $id ?>" style="visibility: hidden;">
         <input type="submit" value="Envoyer">
         </form>
       </div>  
