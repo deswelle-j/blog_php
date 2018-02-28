@@ -15,16 +15,15 @@
       <h1>Ceci est un prototype simpliste de blog</h1>
 
 
-    <?php
-      //afficher les billets, avec un lien vers les commentaires de ceux-ci, du plus recent au plus ancien
-      foreach ($reponse as $donnée){
-          echo '<div class="post"><h2>' . $donnée['titre'] . '</h2><p>' .$donnée['contenu'] . '</p>';
-          echo '<a href=commentaires.php?id_billet=' .$donnée['id'] .'>Commentaires</a></div>';
-      }
-
-      //Fermeture du curseur
-      $req->closeCursor();
-      ?>
+      <!-- afficher les billets, avec un lien vers les commentaires de ceux-ci, du plus recent au plus ancien -->
+        <?php foreach($reponse as $donnée) :?>
+          <div class="post">
+            <h2><?php echo $donnée['titre'] ?></h2>
+            <p><?php echo $donnée['contenu'] ?></p>
+            <a href=commentaires.php?id_billet=<?php echo $donnée['id'] ?>>Commentaires</a>
+          </div>
+        <?php endforeach ?>
+     
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

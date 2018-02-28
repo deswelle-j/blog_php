@@ -12,7 +12,8 @@ if(isset($_POST['auteur']) && isset($_POST['commentaire']) && isset($_POST['id_b
     $id_billet = htmlspecialchars($_POST['id_billet']);
     echo 'test reussit';
 
-    $req = $db->prepare('INSERT INTO commentaires(auteur, commentaire, id_billet, date_commentaire) VALUES(:author, :comment, :id_billet, NOW())');
+    $req = $db->prepare('INSERT INTO commentaires(auteur, commentaire, id_billet, date_commentaire) 
+    VALUES(:author, :comment, :id_billet, NOW())');
     $req->bindValue(':author', $author, PDO::PARAM_STR);
     $req->bindValue(':comment', $comment, PDO::PARAM_STR);
     $req->bindValue(':id_billet', $id_billet, PDO::PARAM_INT);
