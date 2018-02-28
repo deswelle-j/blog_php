@@ -13,14 +13,12 @@
   <body>
     <main class="container">
       <h1>Ceci est un prototype simpliste de blog</h1>
-
-
-      <!-- afficher les billets, avec un lien vers les commentaires de ceux-ci, du plus recent au plus ancien -->
-        <?php foreach($reponse as $donnée) :?>
+      <!-- display postss, with a link to a comment page -->
+        <?php foreach($posts as $data) :?>
           <div class="post">
-            <h2><?php echo $donnée['titre'] ?></h2>
-            <p><?php echo $donnée['contenu'] ?></p>
-            <a href=commentaires.php?id_billet=<?php echo $donnée['id'] ?>>Commentaires</a>
+            <h2><?= $data['titre'] ?></h2>
+            <p><?= $data['contenu'] ?></p>
+            <a href=commentaires.php?id_billet=<?= $data['id'] ?>>Commentaires</a>
           </div>
         <?php endforeach ?>
      

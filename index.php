@@ -1,7 +1,6 @@
 <?php
       require('model.php');
       
-      $reponse = getBillets();
-      require('homeVue.php');
-?>
+      $posts = getPosts();
+      require('indexView.php');
 

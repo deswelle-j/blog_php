@@ -18,7 +18,7 @@
     
       require('database.php');
       //connexion à la base de donnée blog_php
-      $db = connexion();
+      $db = connection();
       //preparation d'une requette sql : selectionner le billet passer en $_GET
       $id= $_GET['id_billet'];
       // var_dump($id);
