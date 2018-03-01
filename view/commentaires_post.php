@@ -4,7 +4,6 @@ require('database.php');
 //connexion à la base de donnée blog_php
 $db = connexion();
 //Recuperation et verification des valeurs du formulaire
-var_dump($_POST);
 if(isset($_POST['auteur']) && isset($_POST['commentaire']) && isset($_POST['id_billet']) && ($_POST['auteur'] && $_POST['commentaire'] && $_POST['id_billet']) != '' ){
     //Preparation de la requette : INSERT le commentaire le nom de l'auteur et la date actuelle dans la table commentaires
     $author = htmlspecialchars($_POST['auteur']);

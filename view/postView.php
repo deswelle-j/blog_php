@@ -1,3 +1,7 @@
+<?php $title = $post['titre']; ?>
+
+<?php ob_start(); ?>
+
 <h1>Ceci est un prototype simpliste de blog</h1>
 <a href="index.php">Retour à la liste de billets</a>
 
@@ -37,3 +41,6 @@ Redirection ver la page commentaires_post pour traitement de la requette d'inser
   </form>
 </div>  
    
+<?php $content = ob_get_clean(); ?>
+
+<?php require('template.php'); ?>
