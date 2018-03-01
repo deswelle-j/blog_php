@@ -30,13 +30,12 @@
 <!-- Formulaire de saisie pour ajouter un commentaire en method post
 Redirection ver la page commentaires_post pour traitement de la requette d'insertion -->
 <div>
-  <form action="commentaires_post.php" method="post">
+  <form action="index.php?action=addComment&amp;id_billet=<?= $post['id']?>" method="post">
   <p>Ajoute un commentaire</p>
   <label for="auteur">Pseudo</label>
-  <input id="auteur" name="auteur" type="text">
+  <input id="auteur" name="author" type="text">
   <label for="commentaire">Commentaire</label>
-  <input id="commentaire" name="commentaire" type="text">
-  <input type="text" name="id_billet" value="<?php echo $id ?>" style="visibility: hidden;">
+  <input id="commentaire" name="comment" type="text">
   <input type="submit" value="Envoyer">
   </form>
 </div>  
