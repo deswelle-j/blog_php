@@ -1,4 +1,6 @@
 <?php
+namespace deswelleJ\Blog\Model;
+use PDO;
 require_once("model/Manager.php");
 class PostManager extends Manager
 {

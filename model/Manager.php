@@ -1,5 +1,9 @@
 <?php
+namespace deswelleJ\Blog\Model;
+use PDO;
+
 require_once('database.php');
+
 class Manager
 {
     protected function connection() {
