@@ -1,9 +1,9 @@
 <?php
-
-class CommentManager
+require_once("model/Manager.php");
+class CommentManager extends Manager
 {
     public function getComments($postId){
-        require_once('database.php');
+        // require_once('database.php');
         $db = $this->connection();
          $req= $db->prepare('SELECT auteur, commentaire, id_billet, DATE_FORMAT(date_commentaire, "%d/%m/%Y à %Hh%imin%ss") AS date_commentaire 
          FROM commentaires WHERE id_billet = :id ORDER BY date_commentaire');
@@ -15,7 +15,7 @@ class CommentManager
     }
     
     public function postComment($author, $comment, $idPost){
-        require_once('database.php');
+        // require_once('database.php');
         $db = $this->connection();
             // $author = htmlspecialchars($_POST['auteur']);
             // $comment = htmlspecialchars($_POST['commentaire']);
@@ -34,16 +34,4 @@ class CommentManager
             return $affectedLines;
     }
 
-    private function connection() {
-
-        // options's array for connection
-        $db_options = array(
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", 
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, 
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING // On affiche des warnings pour les erreurs, à commenter en prod (valeur par défaut PDO::ERRMODE_SILENT)
-        );
-    
-            $db = new PDO('mysql:host=' . HOST . ';dbname=' . DB, USER, PASS, $db_options);
-        return $db;
-    }
 }
