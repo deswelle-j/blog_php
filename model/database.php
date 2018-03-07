@@ -13,12 +13,6 @@ function connection() {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING // On affiche des warnings pour les erreurs, à commenter en prod (valeur par défaut PDO::ERRMODE_SILENT)
     );
 
-    // Connection to the database
-    try {
         $db = new PDO('mysql:host=' . HOST . ';dbname=' . DB, USER, PASS, $db_options);
-    } catch (PDOException $e) {
-        die("Erreur de connexion : " . $e->getMessage());
-    }
-
     return $db;
 }
