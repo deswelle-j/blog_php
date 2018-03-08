@@ -17,6 +17,14 @@ class CommentManager extends Manager
         $req->closeCursor();
         return $reponse;
     }
+    public function getComment($idComment){
+        $db = $this->connection();
+        $req= $db->prepare('SELECT author, comment FROM comments WHERE id = :id');
+        $req->bindValue(':id', $idComment, PDO::PARAM_INT);
+        $req->execute();
+        $reponse=$req->fetch();
+        return $reponse;
+    }
     
     public function postComment($author, $comment, $idPost){
         $db = $this->connection();

@@ -10,7 +10,7 @@
   <form action="index.php?action=editComment&amp;id_comment=<?= $idComment?>" method="post">
   <p>Ajoute un commentaire</p>
   <label for="comment">Commentaire</label>
-  <input id="comment" name="comment" type="text">
+  <input id="comment" name="comment" type="text" value="<?= $comment['comment'] ?>" >
   <input type="submit" value="Envoyer">
   </form>
 </div>  

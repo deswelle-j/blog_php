@@ -31,7 +31,7 @@ function addComment($author, $comment, $idPost)
 {
     $commentManager = new CommentManager();
 
-    $affectedLines = $commentManager->postComment($author, $comment, $idPost);
+    $affectedLines = $commentManager->postComment($author, $comment);
     if ($affectedLines === false){
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }else {
@@ -40,6 +40,7 @@ function addComment($author, $comment, $idPost)
 }
 function editComment($idComment, $idPost){
     $commentManager = new CommentManager();
+    $comment = $commentManager->getComment($idComment);
 
     require('view/editCommentView.php');
 }
