@@ -1,5 +1,5 @@
 <?php
-require('controller/controller.php');
+require('controller/frontend.php');
 
 try{
     if (isset($_GET['action'])) {
@@ -7,7 +7,7 @@ try{
             listPosts();
         }
         elseif ($_GET['action'] == 'post') {
-            if (isset($_GET['id_billet']) && $_GET['id_billet'] > 0) {
+            if (isset($_GET['id_post']) && $_GET['id_post'] > 0) {
                 post();
             }
             else {
@@ -15,11 +15,22 @@ try{
             }
         }
         elseif ($_GET['action'] == 'addComment') {
-            if (isset($_GET['id_billet']) && $_GET['id_billet'] >0){
+            if (isset($_GET['id_post']) && $_GET['id_post'] >0){
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_POST['author'], $_POST['comment'], $_GET['id_billet']);
+                    addComment($_POST['author'], $_POST['comment'], $_GET['id_post']);
                 }else{
                     throw new Exception('tous les champs ne sont pas remplis !');
+                }
+            }else{
+                throw new Exception('aucun identifiant de billet envoyé');
+            }
+        }elseif ($_GET['action'] == 'editComment'){
+            if (isset($_GET['id_comment']) && $_GET['id_comment'] >0){
+                if(!empty($_POST['comment'])){
+                    updateComment($_POST['comment'], $_GET['id_comment']);
+                }else{
+
+                    editComment($_GET['id_comment'], $_GET['id_post']);
                 }
             }else{
                 throw new Exception('aucun identifiant de billet envoyé');
