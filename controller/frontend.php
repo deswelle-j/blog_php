@@ -13,7 +13,7 @@ function listPosts()
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
 
-    require('view/listPostsView.php');
+    require('view/frontend/listPostsView.php');
 }
 
 function post()
@@ -24,7 +24,7 @@ function post()
     $post = $postManager->getPost($idPost);
     $comments = $commentManager->getComments($_GET['id_post']);
 
-    require('view/postView.php');
+    require('view/frontend/postView.php');
 }
 
 function addComment($author, $comment, $idPost)
@@ -42,7 +42,7 @@ function editComment($idComment, $idPost){
     $commentManager = new CommentManager();
     $comment = $commentManager->getComment($idComment);
 
-    require('view/editCommentView.php');
+    require('view/frontend/editCommentView.php');
 }
 function updateComment($comment, $idComment){
     $commentManager = new CommentManager();
