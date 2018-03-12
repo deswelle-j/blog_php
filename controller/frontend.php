@@ -1,11 +1,11 @@
 <?php
 use \deswelleJ\Blog\Model\PostManager;
 use \deswelleJ\Blog\Model\CommentManager;
-
+use \deswelleJ\Blog\Model\UsersManager;
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-
+require_once('model/UsersManager.php');
 
 
 function listPosts()
@@ -52,4 +52,19 @@ function updateComment($comment, $idComment){
     }else {
         header('Location: index.php');
     }
+}
+function authentification($role){
+
+    if ($role && $role == 'admin'){
+        require('view/backend/administrationView.php');
+    }else {
+        require('Location : index.php');
+    }
+}
+function userConnection($user = false){
+    $userManager = new UsersManager();
+
+    $user = $usersManager->userAuthentification();
+
+
 }

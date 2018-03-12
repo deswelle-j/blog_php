@@ -8,7 +8,7 @@ class CommentManager extends Manager
 {
     public function getComments($postId){
         // require_once('database.php');
-        $db = $this->connection();
+        $db = $this->dbConnection();
          $req= $db->prepare('SELECT id, author, comment, id_post, DATE_FORMAT(date_comment, "%d/%m/%Y à %Hh%imin%ss") AS dateComment 
          FROM comments WHERE id_post = :id ORDER BY date_comment DESC');
          $req->bindValue(':id', $postId, PDO::PARAM_INT);
@@ -18,7 +18,7 @@ class CommentManager extends Manager
         return $reponse;
     }
     public function getComment($idComment){
-        $db = $this->connection();
+        $db = $this->dbConnection();
         $req= $db->prepare('SELECT author, comment FROM comments WHERE id = :id');
         $req->bindValue(':id', $idComment, PDO::PARAM_INT);
         $req->execute();
@@ -27,7 +27,7 @@ class CommentManager extends Manager
     }
     
     public function postComment($author, $comment, $idPost){
-        $db = $this->connection();
+        $db = $this->dbConnection();
         $req = $db->prepare('INSERT INTO comments(author, comment, id_post, date_comment) 
         VALUES(:author, :comment, :id_post, NOW())');
         $req->bindValue(':author', $author, PDO::PARAM_STR);
@@ -39,7 +39,7 @@ class CommentManager extends Manager
     }
 
     public function updateCommentDb($comment, $idComment){
-        $db = $this->connection();
+        $db = $this->dbConnection();
         $req = $db->prepare('UPDATE comments SET comment = :comment WHERE id = :idComment');
         $req->bindValue(':comment', $comment, PDO::PARAM_STR);
         $req->bindValue(':idComment', $idComment, PDO::PARAM_INT);

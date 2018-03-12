@@ -6,7 +6,7 @@ require_once('database.php');
 
 class Manager
 {
-    protected function connection() {
+    protected function dbConnection() {
 
         // options's array for connection
         $db_options = array(

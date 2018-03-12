@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('controller/frontend.php');
 
 try{
@@ -24,7 +25,8 @@ try{
             }else{
                 throw new Exception('aucun identifiant de billet envoyé');
             }
-        }elseif ($_GET['action'] == 'editComment'){
+        }
+        elseif ($_GET['action'] == 'editComment'){
             if (isset($_GET['id_comment']) && $_GET['id_comment'] >0){
                 if(!empty($_POST['comment'])){
                     updateComment($_POST['comment'], $_GET['id_comment']);
@@ -34,6 +36,13 @@ try{
                 }
             }else{
                 throw new Exception('aucun identifiant de billet envoyé');
+            }
+        }
+        elseif ($_GET['action'] == 'authentification'){
+            if (isset($_SESSION['user']) && $_SESSION['user_role']){
+                    authentification($_SESSION['user_role']);
+            }else{
+                userConnection();
             }
         }
     }
