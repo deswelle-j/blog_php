@@ -41,9 +41,13 @@ try{
         elseif ($_GET['action'] == 'authentification'){
             if (isset($_SESSION['user']) && $_SESSION['user_role']){
                     authentification($_SESSION['user_role']);
+            }elseif (isset($_POST['inputEmail'], $_POST['inputPassword'])){
+                userConnection($_POST['inputEmail'], $_POST['inputPassword']);
             }else{
                 userConnection();
             }
+        }elseif ($_GET['action'] == 'logOut'){
+            userLogOut();
         }
     }
     else {

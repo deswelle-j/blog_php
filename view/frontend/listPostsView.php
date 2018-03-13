@@ -4,7 +4,7 @@
 <?php ob_start(); ?>
       
 <h1>Ceci est un prototype simpliste de blog</h1>
-<a href="index.php?action=authentification">Connexion</a>
+
 <!-- display posts, with a link to a comment page -->
   <?php foreach($posts as $data) :?>
     <div class="post">

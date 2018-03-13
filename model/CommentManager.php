@@ -17,6 +17,17 @@ class CommentManager extends Manager
         $req->closeCursor();
         return $reponse;
     }
+
+    public function comments(){
+        $db = $this->dbConnection();
+         $req= $db->prepare('SELECT id, author, comment, id_post, DATE_FORMAT(date_comment, "%d/%m/%Y à %Hh%imin%ss") AS dateComment 
+         FROM comments  ORDER BY date_comment DESC');
+         $req->execute();
+         $reponse=$req->fetchAll();
+        $req->closeCursor();
+        return $reponse;
+    }
+
     public function getComment($idComment){
         $db = $this->dbConnection();
         $req= $db->prepare('SELECT author, comment FROM comments WHERE id = :id');
