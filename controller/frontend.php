@@ -121,8 +121,14 @@ function table_html($array, $updateable = false, $update_url = '') {
             $table .= '<td>' . $value . '</td>';
         }
         if ($updateable){
-            $table .= '<td class="edit"><a href="' . $update_url . '?id=' . $row['id'] .'"><img class="edit" style="width : 50px" src="public/img/edit.png"/></a></td>';
+            if($update_url == 'Comment'){
+            $table .= '<td class="edit"><a href="index.php?action=editComment&amp;id_comment=' .$row['id']. '&amp;id_post='. $row['id_post'] .'"><img class="edit" style="width : 50px" src="public/img/edit.png"/></a></td>';
             $table .= '<td class="delete"><a href="' . $update_url . '?id=' . $row['id'] .'"><img class="edit" style="width : 50px" src="public/img/delete.png"/></a></td>';
+            }else {
+                $table .= '<td class="edit"><a href="' .  $update_url . '?id=' . $row['id']  .'"><img class="edit" style="width : 50px" src="public/img/edit.png"/></a></td>';
+                $table .= '<td class="delete"><a href="' . $update_url . '?id=' . $row['id'] .'"><img class="edit" style="width : 50px" src="public/img/delete.png"/></a></td>';
+    
+            }
         }
         $table .= '</tr>';
     }

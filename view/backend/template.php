@@ -14,8 +14,9 @@
     <main class="container">
 
     <p><?php var_dump($_SESSION) ?></p>
-    <a href="index.php?action=authentification">Connexion</a>
     <a href="index.php?action=logOut">Déconnexion</a>
+    <a href="index.php">Accueil</a>
+
     
     <?= $content ?>
   </main>

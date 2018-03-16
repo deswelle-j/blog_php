@@ -14,8 +14,14 @@
     <main class="container">
 
     <p><?php var_dump($_SESSION) ?></p>
-    <a href="index.php?action=authentification">Connexion</a>
-    <a href="index.php?action=logOut">Déconnexion</a>
+    <?php if(isset($_SESSION['user_role']) && !empty($_SESSION['user_role'])): ?>
+      <a href="index.php?action=logOut">Déconnexion</a>
+      <?php  if($_SESSION['user_role'] == 'admin'): ?> 
+        <a href="index.php?action=authentification">Page d'aministration</a>
+      <?php endif ?>
+    <?php else: ?>
+      <a href="index.php?action=authentification">Connexion</a>
+    <?php endif ?>
     
     <?= $content ?>
   </main>
